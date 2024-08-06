@@ -1,6 +1,6 @@
 # githubAPI
  
-GithubAPI made to call github API and listing all of the repositories, their branches and last commit by given username. 
+GithubAPI is a maven project made to call github API and listing all of the repositories, their branches and last commit by given username. 
 
 In this project I used two paths: 
 
