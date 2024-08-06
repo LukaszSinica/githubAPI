@@ -3,6 +3,7 @@ package com.LukaszSinica.githubAPI;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import reactor.core.publisher.Mono;
@@ -17,9 +18,9 @@ public class GithubApiController {
 		this.githubApiService = githubApiService;
 	}
 
-	@GetMapping("/list-repositories")
-	public Mono<List<GithubApiRepository>> listRepositories() {
+	@GetMapping("/{username}/repos")
+	public Mono<List<GithubApiRepository>> listRepositories(@PathVariable String username) {
 
-		return githubApiService.githubRepositoryList();
+		return githubApiService.githubRepositoryList(username);
 	}
 }

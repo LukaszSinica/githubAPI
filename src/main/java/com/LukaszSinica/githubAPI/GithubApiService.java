@@ -20,12 +20,11 @@ import reactor.core.scheduler.Schedulers;
 @Service
 public class GithubApiService {
 
-
 	@Autowired
 	private WebClient.Builder webClientBuilder;
 
-	public Mono<List<GithubApiRepository>> githubRepositoryList() {
-		String url = String.format("https://api.github.com/users/%s/repos", "LukaszSinica1");
+	public Mono<List<GithubApiRepository>> githubRepositoryList(String username) {
+		String url = String.format("https://api.github.com/users/%s/repos", username);
         return webClientBuilder.build()
                 .get()
                 .uri(url)
